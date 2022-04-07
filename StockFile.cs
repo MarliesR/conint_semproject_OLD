@@ -17,7 +17,15 @@ namespace conint_server
         public StockFile(string filepath)
         {
             path = filepath;
+            correctPath();
             convertToJSON();
+        }
+
+        private void correctPath()
+        {
+            string sCurrentDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string sFile = System.IO.Path.Combine(sCurrentDirectory, path);
+            path = Path.GetFullPath(sFile);
         }
  
         public void convertToJSON()
