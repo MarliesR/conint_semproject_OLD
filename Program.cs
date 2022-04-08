@@ -2,8 +2,7 @@
 using System.Net;
 using System.IO;
 using System.Text;
-
-
+using System.Runtime.InteropServices;
 
 namespace conint_server
 {
@@ -11,16 +10,20 @@ namespace conint_server
     {
         static void Main(string[] args)
         {
-            //https://codingvision.net/c-simple-http-server
-            //https://www.youtube.com/watch?v=tfhIJg79pwI&ab_channel=lifemichael
-            Console.WriteLine("Hello World!");
+            
+            Console.WriteLine("Server starting...");
             HttpListener server = new HttpListener();
 
             //prefixes required
-            //server.Prefixes.Add("http://localhost:1300/server/");
-            server.Prefixes.Add("http://+:1300/");
-            //server.Prefixes.Add("http://127.0.0.1:3000/server/");
-            //server.Prefixes.Add("http://0.0.0.0/server/");
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                server.Prefixes.Add("http://*:1300/server/");
+            }
+            else
+            {
+                server.Prefixes.Add("http://localhost:1300/server/");
+            }
+            
             server.Start();
 
             Console.WriteLine("Listening");
@@ -32,6 +35,7 @@ namespace conint_server
                 //file machen und zu json convertieren
                 StockFile data = new StockFile("../../../data/BTC-USD.csv");
                 string Answer = data.getJsonFile();
+
                 //string Answer = "hi";
                 //Länge der antwort berechnen
                 context.Response.ContentLength64 = Encoding.UTF8.GetByteCount(Answer); 
