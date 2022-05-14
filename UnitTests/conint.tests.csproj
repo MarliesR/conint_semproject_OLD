@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\conint_server\conint_server.csproj" />
+    <ProjectReference Include="..\conint_server\conint.server.csproj" />
   </ItemGroup>
 
 </Project>

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "conint_server", "conint_server.csproj", "{8A7A46B0-E5AD-4050-AAED-260AD9E6454C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "conint.server", "conint.server.csproj", "{8A7A46B0-E5AD-4050-AAED-260AD9E6454C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "..\UnitTests\UnitTests.csproj", "{EDED9F80-6E54-4F05-9A14-CAA85F87F834}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "conint.tests", "..\UnitTests\conint.tests.csproj", "{EDED9F80-6E54-4F05-9A14-CAA85F87F834}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
